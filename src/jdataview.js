@@ -1,3 +1,6 @@
+define([], function() {
+var scope = {};
+
 //
 // jDataView by Vjeux - Jan 2010
 //
@@ -513,4 +516,7 @@ if (typeof module !== 'undefined') {
 	module.exports = jDataView;
 }
 
-})(this);
+})(scope);
+
+return scope.jDataView;
+});
