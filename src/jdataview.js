@@ -127,7 +127,7 @@ var jDataView = function (buffer, byteOffset, byteLength, littleEndian) {
 					view._offset = byteOffset + size;
 
 					return view._view['get' + type](byteOffset, littleEndian);
-				}
+				};
 			})(type, this);
 		}
 	} else if (this._isNodeBuffer && compatibility.NodeBuffer) {
@@ -162,7 +162,7 @@ var jDataView = function (buffer, byteOffset, byteLength, littleEndian) {
 					view._offset = byteOffset + size;
 
 					return view.buffer[name](view._start + byteOffset);
-				}
+				};
 			})(type, this, name);
 		}
 	} else {
@@ -201,7 +201,7 @@ var jDataView = function (buffer, byteOffset, byteLength, littleEndian) {
 
 						return view['_get' + type](view._start + byteOffset, littleEndian);
 					}
-				}
+				};
 			})(type, this);
 		}
 	}
@@ -210,15 +210,15 @@ var jDataView = function (buffer, byteOffset, byteLength, littleEndian) {
 if (compatibility.NodeBuffer) {
 	jDataView.createBuffer = function () {
 		return new Buffer(arguments);
-	}
+	};
 } else if (compatibility.ArrayBuffer) {
 	jDataView.createBuffer = function () {
 		return new Uint8Array(arguments).buffer;
-	}
+	};
 } else {
 	jDataView.createBuffer = function () {
 		return String.fromCharCode.apply(null, arguments);
-	}
+	};
 }
 
 jDataView.prototype = {
@@ -450,7 +450,7 @@ if (typeof jQuery !== 'undefined' && jQuery.fn.jquery >= "1.6.2") {
 			thischar = scrambledStr.charCodeAt(i++);
 			result += String.fromCharCode(thischar & 0xff, thischar >> 8);
 		}
-		l = scrambledStr.length
+		l = scrambledStr.length;
 		while (i < l) {
 			result += String.fromCharCode(
 				(thischar = scrambledStr.charCodeAt(i++), thischar & 0xff), thischar >> 8,
