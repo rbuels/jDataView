@@ -256,8 +256,8 @@ jDataView.prototype = {
 			result = this.buffer.slice(byteOffset, byteOffset + length);
 
 			if (!this._isNodeBuffer) {
-				result = Array.prototype.map.call(result, function (char) {
-					return char.charCodeAt(0) & 0xff;
+				result = Array.prototype.map.call(result, function (ch) {
+					return ch.charCodeAt(0) & 0xff;
 				});
 			}
 		}
